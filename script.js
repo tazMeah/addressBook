@@ -50,6 +50,16 @@ function start(){
 
     //if delete by index
     if (choice == "INDEX") {
+        let deleteIndex = prompt("Enter index number to delete.");
+        book.contacts.splice(deleteIndex, 1);
+        console.log(book);
+
+
+    }
+ 
+
+    //if delete by name
+    if (choice == "NAME") {
         let deleteContact = prompt("Enter name of contact to delete.");
         //loop through contacts, searching for name match
         for (let i = 0; i < book.contacts.length; i++) {
@@ -57,12 +67,9 @@ function start(){
                 book.contacts.splice(i, 1);
             }
         }
+        console.log(book);
     }
-
-    //if delete by name
-    if (choice == "NAME") {
-
-    }
+    
     //if update
 
     //if print
