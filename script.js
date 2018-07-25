@@ -71,8 +71,21 @@ function start(){
     }
     
     //if update
+    if (choice == "UPDATE") {
+        let updateIndex = prompt("Enter index to update");
+        let updateProperty = prompt("Editing: NAME, EMAIL, PHONE, or RELATION?").toLowerCase();
+        let editedValue = prompt(`Enter the new value for ${updateProperty.toUpperCase()}`);
+        // book.contacts[updateIndex].updateProperty = editedValue;
+        let foo = book.contacts[updateIndex];
+        foo["updateProperty"] = editedValue; 
+
+    }
 
     //if print
+    if (choice == "PRINT") {
+        console.log(book);
+
+    }
 
     //if quit
 }
