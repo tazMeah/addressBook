@@ -33,33 +33,41 @@ class Contact {
 
 const book = new AddressBook();
  book.add(new Contact("Adam","adam@grandcircus.co", "3135551212", "instructor"));
-//console.log(book);
 
 
 // loop to prompt user to add, delete, print
 // or quit
 
-    function start(){ //for button
-        let choice = prompt("ADD, INDEX delete, NAME delete, UPDATE, PRINT, or QUIT");
-    //while () {
+
+    //function start(){  //testing loop with continue
+    while (true) { //testing loop with continue
+
+        let choice = prompt("ADD, INDEX delete, NAME delete, UPDATE, PRINT, or QUIT").toLowerCase();
+
+        //break with cancel button
+        if (choice == null) {
+            break;
+        }
         //if add
-        if (choice == "ADD") {
+        if (choice == "add") {
             book.add(new Contact(prompt("Enter name"), prompt("Enter email"), prompt("Enter phone"), prompt("Enter relation")));
             console.log(book);
+            continue //testing loop with continue
         }
 
         //if delete by index
-        if (choice == "INDEX") {
+        if (choice == "index") {
             let deleteIndex = prompt("Enter index number to delete.");
             book.contacts.splice(deleteIndex, 1);
             console.log(book);
+            continue //testing loop with continue
 
 
         }
     
 
         //if delete by name
-        if (choice == "NAME") {
+        if (choice == "name") {
             let deleteContact = prompt("Enter name of contact to delete.");
             //loop through contacts, searching for name match
             for (let i = 0; i < book.contacts.length; i++) {
@@ -68,10 +76,11 @@ const book = new AddressBook();
                 }
             }
             console.log(book);
+            continue //testing loop with continue
         }
         
         //if update
-        if (choice == "UPDATE") {
+        if (choice == "update") {
             let updateIndex = prompt("Enter index to update");
             let updateProperty = prompt("Editing: NAME, EMAIL, PHONE, or RELATION?").toLowerCase();
             
@@ -79,17 +88,20 @@ const book = new AddressBook();
             foo[updateProperty] =  prompt(`Enter new ${updateProperty.toUpperCase()}`);
     
             console.log(book);
+            continue //testing loop with continue
 
         }
 
         //if print
-        if (choice == "PRINT") {
+        if (choice == "print") {
             console.log(book);
+            continue //testing loop with continue
 
         }
 
         //if quit
-        if (choice == "QUIT") {
-           // break;
+        if (choice == "quit") {
+           console.log("Have a great day!")
+           break // testing loop with continue
         }
     }
