@@ -32,7 +32,7 @@ class Contact {
 
 
 const book = new AddressBook();
-book.add(new Contact("Adam","adam@grandcircus.co", "3135551212", "instructor"));
+ book.add(new Contact("Adam","adam@grandcircus.co", "3135551212", "instructor"));
 //console.log(book);
 
 
@@ -40,14 +40,29 @@ book.add(new Contact("Adam","adam@grandcircus.co", "3135551212", "instructor"));
 // or quit
 
 function start(){
-    prompt("add, delete (index), delete (name) update, print, or quit");
+    let choice = prompt("ADD, INDEX delete, NAME delete, UPDATE, PRINT, or QUIT");
 
     //if add
+    if (choice == "ADD") {
+        book.add(new Contact(prompt("Enter name"), prompt("Enter email"), prompt("Enter phone"), prompt("Enter relation")));
+        console.log(book);
+    }
 
     //if delete by index
+    if (choice == "INDEX") {
+        let deleteContact = prompt("Enter name of contact to delete.");
+        //loop through contacts, searching for name match
+        for (let i = 0; i < book.contacts.length; i++) {
+            if (book.contacts[i].name == deleteContact) {
+                book.contacts.splice(i, 1);
+            }
+        }
+    }
 
     //if delete by name
+    if (choice == "NAME") {
 
+    }
     //if update
 
     //if print
